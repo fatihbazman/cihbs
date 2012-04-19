@@ -1,6 +1,6 @@
 CIHBS - HMVC ve Twitter Bootstrap ile Olusturulmus CI Sablonu
 
-CIHBS kisaltmasi, CodeIgniter Hmvc ve BootStrap kelimelerinin bas harfelrinden olusmaktadir. CodeIgniter 2.1 versiyonu ile hazirlaigim bu sablon, HMVC ile Twitter Bootstrap V2.0.2 aray�z�n� i�erir. Dizin yapisi asagidaki yapiya benzerdir:
+CIHBS kisaltmasi, CodeIgniter Hmvc ve BootStrap kelimelerinin bas harfelrinden olusmaktadir. CodeIgniter 2.1 versiyonu ile hazirlaigim bu sablon, HMVC ile Twitter Bootstrap V2.0.2 arayüzünü içerir. Dizin yapisi asagidaki yapiya benzerdir:
 
 /
     application/
@@ -25,7 +25,7 @@ CIHBS kisaltmasi, CodeIgniter Hmvc ve BootStrap kelimelerinin bas harfelrinden o
                   models/
                       welcome_model.php
                   views/
-		     welcome_view.php
+					 welcome_view.php
                      admin/
                          index.php
                          form.php
@@ -37,9 +37,9 @@ CIHBS kisaltmasi, CodeIgniter Hmvc ve BootStrap kelimelerinin bas harfelrinden o
       system/
       index.php
 	  
-Bu yapida g�rd�g�n�z �zere, giris-�ikis kontrol� application/controllers/auth.php dosyasi �zerinden saglanir. Her bir mod�l ise, application/modules dizini altinda kendi ismi ile MVC yapisina sahiptir.
+Bu yapida gördügünüz üzere, giris-çikis kontrolü application/controllers/auth.php dosyasi üzerinden saglanir. Her bir modül ise, application/modules dizini altinda kendi ismi ile MVC yapisina sahiptir.
 
-Kullanicinin erisim yetkisi, controller dosyasinin construct mod�l�nde kontrol edilir:
+Kullanicinin erisim yetkisi, controller dosyasinin construct modülünde kontrol edilir:
 
     function __construct() {
 	
@@ -48,7 +48,7 @@ Kullanicinin erisim yetkisi, controller dosyasinin construct mod�l�nde kontr
 		if(! $this->hmvc_auth->get('logged_in')) exit('Yetkili degilsiniz');
 	}
 
-Eger kullanicimizin rol� "admin" ise (veritabaninaki "role" tablosu degeri "a" ise), her controller dizini i�indeki admin.php dosyasina erisilebilir. Admin kontrol� ise yine construct m�d�l�nde kontrol edilir:
+Eger kullanicimizin rolü "admin" ise (veritabaninaki "role" tablosu degeri "a" ise), her controller dizini içindeki admin.php dosyasina erisilebilir. Admin kontrolü ise yine construct mödülünde kontrol edilir:
 
 
     function __construct()
@@ -59,7 +59,7 @@ Eger kullanicimizin rol� "admin" ise (veritabaninaki "role" tablosu degeri "a"
 		
 	}
 
-Y�netici paneline erisim i�in gerekli y�nlendirmeler ise Application/config/routes.php dosyasindan yapilir:
+Yönetici paneline erisim için gerekli yönlendirmeler ise Application/config/routes.php dosyasindan yapilir:
 
 $route['(login|logout)'] = "auth/$1";
 
@@ -67,5 +67,5 @@ $route['admin/([a-zA-Z_-]+)/(:any)'] = '$1/admin/$2';
 
 $route['admin/([a-zA-Z_-]+)'] = '$1/admin/index';
 
-Twitter Bootstrap aray�z� de hem kullanim kolayligi, hem de estetik olmasi a�isindan bu sablona giydirildi. Bu aray�z temel olarak 3 ana par�aya ayrildi: header, footer, meta view. Her controller dosyasinda bulunan render methodu ile controller'a �zg� par�alar bir araya getirilip, ekrana bastirilmaktadir.
+Twitter Bootstrap arayüzü de hem kullanim kolayligi, hem de estetik olmasi açisindan bu sablona giydirildi. Bu arayüz temel olarak 3 ana parçaya ayrildi: header, footer, meta view. Her controller dosyasinda bulunan render methodu ile controller'a özgü parçalar bir araya getirilip, ekrana bastirilmaktadir.
 
