@@ -57,9 +57,6 @@ class Auth extends MX_Controller{
      * Lütfen kullanıcı oluşturduktan sonra silin güvenlik açığı oluşturur!
 
     public function new_user($email='', $password=''){
-		$email = 'fatih@kolikler.com';
-		$password = 'asdasd';
-	
 	
         $password = self::secure_password($email,$password);
         $this->db->insert('users', array('email' => $email, 'password' => $password));
