@@ -29,7 +29,8 @@ class Auth extends MX_Controller{
 			$get_user = $this->hmvc_auth->is_user($data);
 				
             if($get_user === FALSE){ 
-				
+			
+				$this->session->set_flashdata('msg', 'Hatalı giriş!');
                 redirect(site_url('welcome'));
 					
 			} else{
@@ -39,6 +40,8 @@ class Auth extends MX_Controller{
                 unset($data['password']); 
 
                 $this->hmvc_auth->set($data); 
+				
+				$this->session->set_flashdata('msg', '<div class="alert alert-success">Hoşgeldiniz!</div>');
                 redirect(site_url('dashboard')); // modüle yönlendiriliyor.
 					
             }
@@ -57,6 +60,9 @@ class Auth extends MX_Controller{
      * Lütfen kullanıcı oluşturduktan sonra silin güvenlik açığı oluşturur!
 
     public function new_user($email='', $password=''){
+		$email = 'fatih@kolikler.com';
+		$password = 'asdasd';
+	
 	
         $password = self::secure_password($email,$password);
         $this->db->insert('users', array('email' => $email, 'password' => $password));

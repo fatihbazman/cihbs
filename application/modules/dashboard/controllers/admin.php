@@ -35,10 +35,8 @@ class Admin extends MX_Controller
 	
 	public function add()
 	{
+		$data['id'] = (int) $this->uri->segment(4);
 
-		$this->render('admin/dashboard_admin_add_view');
+		$this->render('admin/dashboard_admin_add_view',$data);
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
