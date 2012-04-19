@@ -25,7 +25,7 @@ CIHBS kisaltmasi, CodeIgniter Hmvc ve BootStrap kelimelerinin bas harfelrinden o
                   models/
                       welcome_model.php
                   views/
-					 welcome_view.php
+		     welcome_view.php
                      admin/
                          index.php
                          form.php
