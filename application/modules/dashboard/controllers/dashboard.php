@@ -29,5 +29,12 @@ class Dashboard extends MX_Controller{
 		
 		$this->render('dashboard_view', $data);
     }
+	
+	public function get(){
+		$data['id'] = $this->uri->segment(3);
+		
+		$this->render('dashboard_view', $data);
+	}
+	
 }
 

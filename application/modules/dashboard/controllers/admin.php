@@ -8,7 +8,7 @@ class Admin extends MX_Controller
 
 		if(! $this->hmvc_auth->is_admin()) exit('Admin degilsiniz!');
 		
-//		$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
        
         $this->load->library('form_validation');
         $this->form_validation->CI =& $this;
@@ -29,14 +29,29 @@ class Admin extends MX_Controller
 
 	public function index()
 	{
-
-		$this->render('admin/dashboard_admin_view');
+		self::render('admin/dashboard_admin_view');
 	}
 	
-	public function add()
+	public function pagination()
 	{
 		$data['id'] = (int) $this->uri->segment(4);
-
-		$this->render('admin/dashboard_admin_add_view',$data);
+		
+		$data['page'] = self::create_pagination(50);
+		
+		self::render('admin/dashboard_admin_add_view',$data);
 	}
+	
+	private function create_pagination($total)
+	{
+
+		$this->load->library('pagination');	
+			
+		$config['total_rows'] = $total;
+		$this->pagination->initialize($config); 
+		
+	
+		return $this->pagination->create_links();
+	
+	}
+	
 }
