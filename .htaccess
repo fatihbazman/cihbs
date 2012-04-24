@@ -1,4 +1,12 @@
+# RewriteEngine on
+# RewriteRule ^$ /cihbs/index.php [L]
+# RewriteCond $1 !^(index\.php|assets|robots\.txt|favicon\.ico)
+# RewriteRule ^(.*)$ /cihbs/index.php/$1 [L] 
 RewriteEngine on
-RewriteRule ^$ /cihbs/index.php [L]
-RewriteCond $1 !^(index\.php|assets|robots\.txt|favicon\.ico)
-RewriteRule ^(.*)$ /cihbs/index.php/$1 [L] 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(application|system) index.php/$1 [L]
