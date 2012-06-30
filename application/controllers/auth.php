@@ -55,20 +55,4 @@ class Auth extends MX_Controller{
         redirect(site_url('welcome'));
     }
 
-    /*
-     * Yeni kullanıcı ekle
-     * Lütfen kullanıcı oluşturduktan sonra silin güvenlik açığı oluşturur!
-
-    public function new_user($email='', $password=''){
-		$email = 'fatih@kolikler.com';
-		$password = 'asdasd';
-	
-	
-        $password = self::secure_password($email,$password);
-        $this->db->insert('users', array('email' => $email, 'password' => $password));
-
-        redirect(site_url('login'));
-    }
-	*/
-
 }
