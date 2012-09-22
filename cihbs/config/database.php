@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'cihbs_user';
-$db['default']['password'] = 'as12buke';
-$db['default']['database'] = 'cihbs';
+$db['default']['password'] = 'password';
+$db['default']['database'] = 'cihbs_db';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
