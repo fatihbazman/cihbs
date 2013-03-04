@@ -49,15 +49,11 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-<<<<<<< HEAD:cihbs/config/database.php
+
 $db['default']['username'] = 'cihbs_user';
 $db['default']['password'] = 'password';
 $db['default']['database'] = 'cihbs_db';
-=======
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'password';
-$db['default']['database'] = 'database';
->>>>>>> parent of 6694118... Updated with new versions of CI and TW BS:application/config/database.php
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
